@@ -1,0 +1,415 @@
+{
+  "info": {
+    "_postman_id": "cafccdb1-cfa3-4bbf-a804-2b66c2dd6176",
+    "name": "sequelize_assignment5",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58382584",
+    "_collection_link": "https://go.postman.co/collection/58382584-cafccdb1-cfa3-4bbf-a804-2b66c2dd6176?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "user",
+      "item": [
+        {
+          "name": "create user",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\" : \"Mohamed\",\r\n    \"email\" : \"mohamed@gmail.com\",\r\n    \"password\" : \"mohamed_123\",\r\n    \"role\" : \"admin\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/users/signup",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "users",
+                "signup"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update user by id",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\" : \"update ahmed\",\r\n    \"email\" : \"update last ahmed\",\r\n    \"password\":  \"updatePassword\",\r\n    \"role\" : \"user\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/users/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "users",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get user by email",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/users/by-email?email=mohamed@gmail.com",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "users",
+                "by-email"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "mohamed@gmail.com"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get user by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/users/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "users",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get posts by it's comments cout",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/posts/comment-count",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "posts",
+                "comment-count"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "post",
+      "item": [
+        {
+          "name": "create post",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"My third Post\",\r\n  \"content\": \"This is my 3 post using Node.js and Sequelize\",\r\n  \"userId\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/posts/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "posts",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete post by id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"userId\" : 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/posts/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "posts",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get posts with it's details",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/posts/details",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "posts",
+                "details"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "comment",
+      "item": [
+        {
+          "name": "create bulk write",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"comments\": [\r\n    {\r\n      \"content\": \"Great post! Really helpful.\",\r\n      \"postId\": 1,\r\n      \"userId\": 1\r\n    },\r\n    {\r\n      \"content\": \"Thanks for sharing this!\",\r\n      \"postId\": 1,\r\n      \"userId\": 2\r\n    },\r\n    {\r\n      \"content\": \"I totally agree with you.\",\r\n      \"postId\": 2,\r\n      \"userId\": 1\r\n    },\r\n    {\r\n      \"content\": \"Very informative post.\",\r\n      \"postId\": 2,\r\n      \"userId\": 1\r\n    },\r\n    {\r\n      \"content\": \"Looking forward to more posts like this.\",\r\n      \"postId\": 3,\r\n      \"userId\": 2\r\n    }\r\n  ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/comments",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "comments"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update comment by id",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"userId\" : 2,\r\n    \"content\" : \"updated content\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/comments/17",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "comments",
+                "17"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "find or create comment",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"postId\" : 1 ,\r\n    \"userId\" : 1 ,\r\n    \"content\" : \"new comment content\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/comments/find-or-create",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "comments",
+                "find-or-create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get comments with a word from it's content",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/comments/search?word=updated",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "comments",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "word",
+                  "value": "updated"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "newest 3",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/comments/newest/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "comments",
+                "newest",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get comment details by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/comments/details/20",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "comments",
+                "details",
+                "20"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/health",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "health"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
